@@ -11,8 +11,35 @@ def control(t, y):
     ### WRITE YOUR CONTROL POLICY HERE:
     ux = 0
     uy = 0
+    if t<1:
+        ux = 15
+        uy = 0
+    elif t<2:
+        ux = 0
+        uy = 4
+    elif t<3:
+        ux = -10
+        uy = 0
+    elif t<4:
+        ux = 0
+        uy = 9
+    elif t<5:
+        ux = 3
+        uy = 0
+    elif t<6:
+        ux = 0
+        uy = -5
+    elif t<7:
+        ux = -4
+        uy = 0
+    elif t<8:
+        ux = 0
+        uy = 9
+    elif t<9:
+        ux = 10
+        uy = 0
     return array([ux, uy])
-tf = 7.
+tf = 9.
 Δt = 0.1    # Time step
 time = linspace(0.,tf, int(tf / Δt) + 1)  # Time interval
 
@@ -29,7 +56,7 @@ plt.gca().add_patch(rec4)
 plt.gca().add_patch(rec5)
 
 # Initial conditions
-x = array([3+3**0.5, 2.5])
+x = array([-5., -7.])
 x_log = [copy(x)]
 
 for t in time:
